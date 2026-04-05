@@ -3,6 +3,7 @@ on: [push]
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  GRADLE_OPTS: "-Xmx2048m -Dfile.encoding=UTF-8"
 
 jobs:
   build:
@@ -14,14 +15,14 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: gradle
 
-      - name: Fix structure
+      - name: Fix structure and gradle.properties
         run: |
-          ls -la
           mv Application app 2>/dev/null || true
-          mv Gradle/Wrapper gradle/wrapper 2>/dev/null || true
-          ls -la
+          echo "org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8" > gradle.properties
+          echo "android.useAndroidX=true" >> gradle.properties
+          echo "android.enableJetifier=true" >> gradle.properties
+          cat gradle.properties
 
       - run: chmod +x gradlew
 
