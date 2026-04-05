@@ -3,7 +3,6 @@ on: [push]
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-  GRADLE_OPTS: "-Xmx2048m -Dfile.encoding=UTF-8"
 
 jobs:
   build:
@@ -16,13 +15,33 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Fix structure and gradle.properties
+      - name: Fix structure
         run: |
           mv Application app 2>/dev/null || true
+          mkdir -p gradle/wrapper
+          mv Gradle/Wrapper/* gradle/wrapper/ 2>/dev/null || true
           echo "org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8" > gradle.properties
           echo "android.useAndroidX=true" >> gradle.properties
           echo "android.enableJetifier=true" >> gradle.properties
-          cat gradle.properties
+
+      - name: Download Gradle wrapper jar
+        run: |
+          mkdir -p gradle/wrapper
+          curl -L "https://github.com/gradle/gradle/raw/v8.2.0/gradle/wrapper/gradle-wrapper.jar" \
+            -o gradle/wrapper/gradle-wrapper.jar 2>/dev/null || \
+          wget -q "https://raw.githubusercontent.com/gradle/gradle/v8.2.0/gradle/wrapper/gradle-wrapper.jar" \
+            -O gradle/wrapper/gradle-wrapper.jar
+          ls -la gradle/wrapper/
+
+      - name: Write wrapper properties
+        run: |
+          cat > gradle/wrapper/gradle-wrapper.properties << 'EOF'
+          distributionBase=GRADLE_USER_HOME
+          distributionPath=wrapper/dists
+          distributionUrl=https\://services.gradle.org/distributions/gradle-8.2-bin.zip
+          zipStoreBase=GRADLE_USER_HOME
+          zipStorePath=wrapper/dists
+          EOF
 
       - run: chmod +x gradlew
 
