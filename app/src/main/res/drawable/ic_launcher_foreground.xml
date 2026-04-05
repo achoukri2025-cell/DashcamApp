@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Fond orange -->
+    <path
+        android:fillColor="#FF6B2B"
+        android:pathData="M0,0 L108,0 L108,108 L0,108 Z"/>
+
+    <!-- Corps caméra blanc -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M18,36 Q18,28 26,28 L66,28 Q74,28 74,36 L74,72 Q74,80 66,80 L26,80 Q18,80 18,72 Z"/>
+
+    <!-- Partie arrière caméra -->
+    <path
+        android:fillColor="#EEEEEE"
+        android:pathData="M74,44 L88,38 Q92,36 92,40 L92,68 Q92,72 88,70 L74,64 Z"/>
+
+    <!-- Objectif extérieur sombre -->
+    <path
+        android:fillColor="#1A1D26"
+        android:pathData="M46,54 m-18,0 a18,18 0 1,0 36,0 a18,18 0 1,0 -36,0"/>
+
+    <!-- Objectif anneau orange -->
+    <path
+        android:fillColor="#FF6B2B"
+        android:pathData="M46,54 m-13,0 a13,13 0 1,0 26,0 a13,13 0 1,0 -26,0"/>
+
+    <!-- Objectif centre sombre -->
+    <path
+        android:fillColor="#0F1117"
+        android:pathData="M46,54 m-8,0 a8,8 0 1,0 16,0 a8,8 0 1,0 -16,0"/>
+
+    <!-- Reflet objectif blanc -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,48 a4,4 0 0,1 4,-4"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"/>
+
+    <!-- LED rouge -->
+    <path
+        android:fillColor="#FF1744"
+        android:pathData="M24,33 m-4,0 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0"/>
+
+</vector>

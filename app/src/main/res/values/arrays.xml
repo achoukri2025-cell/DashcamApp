@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="protocols">
+        <item>RTSP (Standard)</item>
+        <item>HTTP MJPEG</item>
+        <item>HLS (m3u8)</item>
+    </string-array>
+
+    <string-array name="qualities">
+        <item>Haute (original)</item>
+        <item>Moyenne</item>
+        <item>Basse</item>
+    </string-array>
+</resources>

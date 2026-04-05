@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!--
+        Les dashcams WiFi utilisent HTTP (non chiffré) sur le réseau local.
+        On autorise cleartext uniquement pour les plages IP privées.
+    -->
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- Plage réseau dashcam la plus courante -->
+        <domain includeSubdomains="false">192.168.1.1</domain>
+        <domain includeSubdomains="false">192.168.0.1</domain>
+        <domain includeSubdomains="false">192.168.1.254</domain>
+        <domain includeSubdomains="false">10.99.77.1</domain>
+        <domain includeSubdomains="false">172.16.0.1</domain>
+    </domain-config>
+
+    <!-- Autorisation générale pour toutes les IP locales (pratique mais moins sécurisé) -->
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+    </base-config>
+</network-security-config>
