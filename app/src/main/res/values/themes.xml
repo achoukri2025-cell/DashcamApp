@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Thème principal sombre -->
     <style name="Theme.DashcamApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/accent_orange</item>
         <item name="colorPrimaryVariant">@color/accent_orange</item>
@@ -13,30 +12,15 @@
         <item name="android:statusBarColor">@color/card_bg</item>
         <item name="android:navigationBarColor">@color/bg_dark</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
-
-        <!-- TextInputLayout couleurs -->
-        <item name="colorOnSurface">@color/white</item>
-        <item name="colorSurface">@color/card_bg</item>
-        <item name="textColorHint">@color/text_secondary</item>
     </style>
 
-    <!-- Splash Screen -->
     <style name="Theme.DashcamApp.Splash" parent="Theme.DashcamApp">
         <item name="android:statusBarColor">@color/bg_dark</item>
         <item name="android:navigationBarColor">@color/bg_dark</item>
     </style>
 
-    <!-- Live View plein écran -->
     <style name="Theme.DashcamApp.Fullscreen" parent="Theme.DashcamApp">
         <item name="android:windowFullscreen">true</item>
-        <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="o_mr1">shortEdges</item>
-    </style>
-
-    <!-- Style TextInputLayout sombre -->
-    <style name="DashcamTextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/text_secondary</item>
-        <item name="boxStrokeWidthFocused">2dp</item>
-        <item name="hintTextColor">@color/accent_orange</item>
     </style>
 
 </resources>
