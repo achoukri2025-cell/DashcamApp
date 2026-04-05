@@ -28,13 +28,7 @@ jobs:
         run: |
           mkdir -p gradle/wrapper
           curl -L "https://github.com/gradle/gradle/raw/v8.2.0/gradle/wrapper/gradle-wrapper.jar" \
-            -o gradle/wrapper/gradle-wrapper.jar 2>/dev/null || \
-          wget -q "https://raw.githubusercontent.com/gradle/gradle/v8.2.0/gradle/wrapper/gradle-wrapper.jar" \
-            -O gradle/wrapper/gradle-wrapper.jar
-          ls -la gradle/wrapper/
-
-      - name: Write wrapper properties
-        run: |
+            -o gradle/wrapper/gradle-wrapper.jar
           cat > gradle/wrapper/gradle-wrapper.properties << 'EOF'
           distributionBase=GRADLE_USER_HOME
           distributionPath=wrapper/dists
@@ -43,7 +37,12 @@ jobs:
           zipStorePath=wrapper/dists
           EOF
 
-      - run: chmod +x gradlew
+      - name: Fix gradlew JVM options
+        run: |
+          sed -i 's/-Xdh64m//g' gradlew
+          sed -i 's/DEFAULT_JVM_OPTS=.*/DEFAULT_JVM_OPTS=""/' gradlew
+          chmod +x gradlew
+          cat gradlew | grep -A2 "DEFAULT_JVM_OPTS"
 
       - run: ./gradlew assembleDebug --no-daemon --stacktrace
 
