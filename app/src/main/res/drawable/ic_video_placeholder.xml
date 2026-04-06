@@ -4,12 +4,9 @@
     android:height="80dp"
     android:viewportWidth="80"
     android:viewportHeight="80">
-    <rect
+    <path
         android:fillColor="#252836"
-        android:left="0"
-        android:top="0"
-        android:right="80"
-        android:bottom="80"/>
+        android:pathData="M0,0 L80,0 L80,80 L0,80 Z"/>
     <path
         android:fillColor="#3A3F52"
         android:pathData="M20,25 Q20,20 25,20 L45,20 Q50,20 50,25 L50,55 Q50,60 45,60 L25,60 Q20,60 20,55 Z"/>
